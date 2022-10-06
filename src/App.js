@@ -6,6 +6,7 @@ import Product from './components/Product/Product';
 import About from './components/About/About';
 import Main from './layout/Main/Main';
 import Friends from './components/Friends/Friends';
+import Frdetails from './components/Frdetails/Frdetails';
 
 function App() {
   const router = createBrowserRouter([
@@ -19,7 +20,18 @@ function App() {
         loader: async () => {
           return fetch(`https://www.themealdb.com/api/json/v1/1/search.php?f=a`);
         },
-        element: <Friends></Friends>}
+        element: <Friends></Friends>},
+        {
+          path: "/frdetails/:friendId",
+          loader: async ({params}) =>{
+            return fetch(
+              `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${params.friendId}`
+            );
+            // console.log(params);
+            
+          },
+          element: <Frdetails></Frdetails>
+        }
     ]},
     {path: '/about', element: <About></About>},
     {path: '*', element: <div><h2>This is not found 404</h2></div>}
