@@ -8,8 +8,9 @@ const Frdetails = () => {
     
     return (
         <div>
-            <h1>meal db details: {idMeal}</h1>
-            <h1>meal db details: {strMeal}</h1>
+            <h1>All Details Here</h1>
+            <h5>meal db details: {idMeal}</h5>
+            <h3>meal db Name: {strMeal}</h3>
         </div>
     );
 };
